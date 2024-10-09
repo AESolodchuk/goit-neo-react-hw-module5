@@ -1,0 +1,31 @@
+.title {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+
+.overview,
+.genres,
+.info {
+  text-align: left;
+}
+
+.overviewtitle,
+.genrestitle,
+.infotitle {
+  font-weight: 500;
+}
