@@ -23,7 +23,7 @@ const MoviesPage = () => {
       }
     }
     fetchMoviesData();
-  }, [setSearchParams]);
+  }, [searchParams]);
 
   const onSearchHandler = (event) => {
     event.preventDefault()   
