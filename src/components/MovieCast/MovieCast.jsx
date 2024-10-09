@@ -1,7 +1,7 @@
-import css from './MovieCast.module.css'
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { fetchMovies } from "../../movies-api"
+import css from './MovieCast.module.css'
 
 
 const MovieCast = () => {
@@ -10,6 +10,7 @@ const MovieCast = () => {
     const [cast, setCast] = useState([]);
 
     useEffect(() => {
+        if (!movieId) return;
         async function fetchMoviesData() {            
             try {
                 setIsLoading(true)

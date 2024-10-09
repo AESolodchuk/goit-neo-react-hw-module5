@@ -1,7 +1,7 @@
-import css from './MovieReviews.module.css'
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { fetchMovies } from "../../movies-api"
+import css from './MovieReviews.module.css'
 
 
 const MovieReviews = () => {
@@ -10,6 +10,8 @@ const MovieReviews = () => {
     const [reviews, setReviews] = useState([])
 
     useEffect(() => {
+
+        if (!movieId) return;
         async function fetchMoviesData() {           
             try {
                 setIsLoading(true);

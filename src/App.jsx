@@ -18,9 +18,7 @@ import MovieReviews from './components/MovieReviews/MovieReviews'
 
 //#region Application
 function App() { 
-
-//------------------------------------------------------------------
-  return (
+ return (
     <>
       <Navigation />
       <Routes>        

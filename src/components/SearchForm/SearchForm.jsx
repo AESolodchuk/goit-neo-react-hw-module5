@@ -1,6 +1,5 @@
 import css from './SearchForm.module.css'
 
-
 const SearchForm = ({ onSearchHandler }) => {
    return(
        <form onSubmit={onSearchHandler} className={css.SearchBarform}>
