@@ -9,7 +9,7 @@ const MoviesPage = () => {
   const [movies, setMovies] = useState([])
   const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();  
-  const { movieId } = useParams();
+  // const { movieId } = useParams();
   
   // useEffect(() => {
   // if (!movieId) return;
@@ -35,7 +35,7 @@ const MoviesPage = () => {
     const searchInput = event.target.elements.searchInput.value.trim()    
     if (!searchInput) {
       return   }       
-    setSearchParams(searchInput)
+    setSearchParams({query:searchInput})
     event.target.reset()
   }
 
