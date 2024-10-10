@@ -1,4 +1,4 @@
-import { useLocation, useSearchParams } from "react-router-dom"
+import { useSearchParams } from "react-router-dom"
 import { useEffect,useState } from "react"
 import { fetchMovies } from "../../movies-api"
 import css from './MoviesPage.module.css'
@@ -10,7 +10,7 @@ const MoviesPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();     
 
-  const location = useLocation(); 
+ 
 
   useEffect(() => {
     async function fetchMoviesData() {
@@ -45,13 +45,7 @@ const MoviesPage = () => {
         </header>
         <hr />
         {isLoading && <p>Loading...</p>}
-          <ul>
-            {movies.map((movie) => (
-              <li key={movie.id}>
-                <MovieList movie={movie} location={location}/>
-              </li>           
-        ))}
-          </ul>      
+        <MovieList movies={movies}/>     
       </>)
             
 }
