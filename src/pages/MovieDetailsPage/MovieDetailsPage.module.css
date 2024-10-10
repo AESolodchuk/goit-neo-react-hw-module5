@@ -29,3 +29,23 @@
 .infotitle {
   font-weight: 500;
 }
+
+.link:hover {
+  color: red;
+}
+
+.linkBack {
+  display: block;
+  text-align: left;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 10px;
+
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.active {
+  color: red;
+  text-decoration: none;
+}

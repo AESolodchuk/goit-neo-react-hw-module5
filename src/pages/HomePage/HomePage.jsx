@@ -1,4 +1,5 @@
 //#region Common import
+import { useLocation } from "react-router-dom"
 import { useEffect, useState } from 'react'
 import { fetchMovies } from '../../movies-api'
 //#endregion Common import
@@ -13,6 +14,8 @@ import MovieList from '../../components/MovieList/MovieList'
 const HomePage = () => { 
   const [movies, setMovies] = useState([])
   const [isLoading, setIsLoading] = useState(false);
+
+  const location = useLocation();
 
   useEffect(() => {
     async function fetchMoviesData() {
@@ -38,7 +41,7 @@ const HomePage = () => {
       <ul>
         {movies.map((movie) => (
             <li key={movie.id}>
-                <MovieList movie={movie} />
+                <MovieList movie={movie} location={location}/>
             </li>           
         ))}
       </ul>

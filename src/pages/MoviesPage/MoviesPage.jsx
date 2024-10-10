@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom"
+import { useLocation, useSearchParams } from "react-router-dom"
 import { useEffect,useState } from "react"
 import { fetchMovies } from "../../movies-api"
 import css from './MoviesPage.module.css'
@@ -8,7 +8,9 @@ import SearchForm from '../../components/SearchForm/SearchForm'
 const MoviesPage = () => { 
   const [movies, setMovies] = useState([])
   const [isLoading, setIsLoading] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams();   
+  const [searchParams, setSearchParams] = useSearchParams();     
+
+  const location = useLocation(); 
 
   useEffect(() => {
     async function fetchMoviesData() {
@@ -29,23 +31,24 @@ const MoviesPage = () => {
     event.preventDefault()   
     const searchInput = event.target.elements.searchInput.value.trim()    
     if (!searchInput) {
-      return   }       
-    setSearchParams({query:searchInput})
+      return
+    }
+    searchParams.set('query', searchInput)
+    setSearchParams(searchParams)
     event.target.reset()
   }
 
     return (
-      <>
-        <button>Go back</button>
+      <>       
          <header className={css.SearchBar}>
-           <SearchForm onSearchHandler={onSearchHandler} />
+          <SearchForm onSearchHandler={onSearchHandler} value={searchParams.get('query')} />
         </header>
         <hr />
         {isLoading && <p>Loading...</p>}
           <ul>
             {movies.map((movie) => (
               <li key={movie.id}>
-                <MovieList movie={movie} />
+                <MovieList movie={movie} location={location}/>
               </li>           
         ))}
           </ul>      

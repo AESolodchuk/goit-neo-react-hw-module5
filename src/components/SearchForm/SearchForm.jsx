@@ -1,6 +1,6 @@
 import css from './SearchForm.module.css'
 
-const SearchForm = ({ onSearchHandler }) => {
+const SearchForm = ({ onSearchHandler, value }) => {
    return(
        <form onSubmit={onSearchHandler} className={css.SearchBarform}>
             <input
@@ -10,6 +10,7 @@ const SearchForm = ({ onSearchHandler }) => {
               placeholder="Search movies"
               name='searchInput'
               className={css.SearchBarInput}
+              defaultValue={value}         
             />
             <button type="submit" className={css.SearchBarBtn}>Search</button>
         </form>)
